@@ -1,0 +1,2 @@
+# Stormtalons
+Plugin for Dalamud
