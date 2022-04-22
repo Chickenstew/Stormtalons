@@ -5,6 +5,13 @@
   "Punchline": "Gives the value of current targets health in Stormtalons from the dead game Wildstar.",
   "RepoUrl": "https://github.com/Chickenstew/Stormtalons",
   "Tags": [],
+  "ApplicableVersion": "any",
+  "DalamudApiLevel": 6,
+  "IsHide": "False",
+  "IsTestingExclusive": "False",
+  "DownloadCount": 0,
+  "LastUpdate": 0,
+  "LoadPriority": 69420,
   "DownloadLinkInstall": "https://github.com/Chickenstew/Stormtalons/releases/download/latest/latest.zip",
   "DownloadLinkTesting": "https://github.com/Chickenstew/Stormtalons/releases/download/latest/latest.zip",
   "DownloadLinkUpdate": "https://github.com/Chickenstew/Stormtalons/releases/download/latest/latest.zip"
