@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.1.32414.318
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Stormtalons", "Stormtalons.csproj", "{BDBF75D6-3C25-4522-8A95-CDFF5EAC0422}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BDBF75D6-3C25-4522-8A95-CDFF5EAC0422}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BDBF75D6-3C25-4522-8A95-CDFF5EAC0422}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BDBF75D6-3C25-4522-8A95-CDFF5EAC0422}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BDBF75D6-3C25-4522-8A95-CDFF5EAC0422}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {174A6C79-C5A7-4A79-9AC6-EA8E9E97EFA9}
+	EndGlobalSection
+EndGlobal
