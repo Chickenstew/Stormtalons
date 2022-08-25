@@ -1,20 +1,22 @@
-{
-  "Author": "Chickenstew",
-  "Name": "Stormtalons",
-  "Description": "Gives the value of current targets health in Stormtalons from the dead game Wildstar.",
-  "Punchline": "Gives the value of current targets health in Stormtalons from the dead game Wildstar.",
-  "InternalName": "Stormtalons",
-  "AssemblyVersion": "1.0.0.0",
-  "TestingAssemblyVersion": "1.0.0.0",
-  "RepoUrl": "https://github.com/Chickenstew/Stormtalons",  
-  "ApplicableVersion": "any",
-  "DalamudApiLevel": 6,
-  "IsHide": "False",
-  "IsTestingExclusive": "False",
-  "DownloadCount": 0,
-  "LastUpdate": 0,
-  "LoadPriority": 69420,
-  "DownloadLinkInstall": "https://github.com/Chickenstew/Stormtalons/releases/download/latest/latest.zip",
-  "DownloadLinkTesting": "https://github.com/Chickenstew/Stormtalons/releases/download/latest/latest.zip",
-  "DownloadLinkUpdate": "https://github.com/Chickenstew/Stormtalons/releases/download/latest/latest.zip"
-}
+[
+    {
+        "Author": "Chickenstew",
+        "Name": "Stormtalons",
+        "Description": "Gives the value of current targets health in Stormtalons from the dead game Wildstar.",
+        "Punchline": "Gives the value of current targets health in Stormtalons from the dead game Wildstar.",
+        "InternalName": "Stormtalons",
+        "AssemblyVersion": "1.0.0.0",
+        "TestingAssemblyVersion": "1.0.0.0",
+        "RepoUrl": "https://github.com/Chickenstew/Stormtalons",
+        "ApplicableVersion": "any",
+        "DalamudApiLevel": 6,
+        "IsHide": "False",
+        "IsTestingExclusive": "False",
+        "DownloadCount": 0,
+        "LastUpdate": 0,
+        "LoadPriority": 69420,
+        "DownloadLinkInstall": "https://github.com/Chickenstew/Stormtalons/releases/download/latest/latest.zip",
+        "DownloadLinkTesting": "https://github.com/Chickenstew/Stormtalons/releases/download/latest/latest.zip",
+        "DownloadLinkUpdate": "https://github.com/Chickenstew/Stormtalons/releases/download/latest/latest.zip"
+    }
+]
