@@ -8,7 +8,6 @@
       "AssemblyVersion": "1.0.0.0",
       "TestingAssemblyVersion": "1.0.0.0",
       "RepoUrl": "https://github.com/Chickenstew/Stormtalons",
-      "ApplicableVersion": "any",
-      "DalamudApiLevel": 7
+      "ApplicableVersion": "any"
   }
 
