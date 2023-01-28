@@ -1,5 +1,6 @@
 ﻿using Dalamud.Configuration;
 using Dalamud.Plugin;
+using System.Numerics;
 using System;
 
 namespace Stormtalons
@@ -10,6 +11,7 @@ namespace Stormtalons
         public bool IsClickthrough { get; set; } = false;
         public float Opacity { get; set; } = 1.0f;
         public bool ShowStormtalonImage { get; set; } = true;
+        public Vector4 ChosenColour { get; set; } = new Vector4(1.0f, 1.0f, 1.0f, 1.0f);
 
         // the below exist just to make saving less cumbersome
 

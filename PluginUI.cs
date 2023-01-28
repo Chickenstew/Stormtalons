@@ -35,7 +35,9 @@ namespace Stormtalons
             {
                 ImGui.Image(this.stormtalonImage.ImGuiHandle, new Vector2(this.stormtalonImage.Width, this.stormtalonImage.Height));
             }
+            ImGui.PushStyleColor(ImGuiCol.Text, ImGui.GetColorU32(config.ChosenColour));
             ImGui.Text(roundedStringtalons + " Stormtalons");
+            ImGui.PopStyleColor();
             ImGui.End();
         }
     }

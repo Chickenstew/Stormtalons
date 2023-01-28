@@ -49,7 +49,7 @@ namespace Stormtalons
             var stormtalonImage = this.pluginInterface.UiBuilder.LoadImage(imagePath);
 
             this.ui = new PluginUI(config, clientState, stormtalonImage);
-            this.cui = new ConfigUI(config.Opacity, config.IsClickthrough, config, config.ShowStormtalonImage);
+            this.cui = new ConfigUI(config.Opacity, config.IsClickthrough, config, config.ShowStormtalonImage, config.ChosenColour);
             this.pluginInterface.UiBuilder.Draw += this.ui.Draw;
             this.pluginInterface.UiBuilder.Draw += this.cui.Draw;
 
