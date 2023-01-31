@@ -7,18 +7,25 @@ namespace Stormtalons
     {
 
         public bool IsVisible { get; set; }
-        private float opacity;
-        private bool isClickthrough;
         private Configuration config;
+        private bool isClickthrough;
+        private float opacity;
+        private bool remainingStormtalonDisplay;
         private bool showStormtalonImage;
+        private bool decayStormtalonImage;
+        private bool decayStormtalonCounter;
         private Vector4 chosenColour;
 
-        public ConfigUI(float opacity, bool isClickthrough, Configuration config, bool showStormtalonImage, Vector4 chosenColour)
+
+        public ConfigUI( Configuration config, bool isClickthrough, float opacity, bool remainingStormtalonDisplay, bool showStormtalonImage, 
+                                        bool decayStormtalonImage, bool decayStormtalonCounter, Vector4 chosenColour)
         {
             this.config = config;
             this.opacity = opacity;
             this.isClickthrough = isClickthrough;
             this.showStormtalonImage = showStormtalonImage;
+            this.decayStormtalonImage = decayStormtalonImage;
+            this.decayStormtalonCounter = decayStormtalonCounter;
             this.chosenColour = chosenColour;
         }
 
@@ -38,9 +45,27 @@ namespace Stormtalons
             {
                 config.IsClickthrough = isClickthrough;
             }
+            if (ImGui.Checkbox("Enable remaining Stormtalons Display", ref remainingStormtalonDisplay))
+            {
+                config.RemainingStormtalonDisplay = remainingStormtalonDisplay;
+            }
             if (ImGui.Checkbox("Show Stormtalon in all his glory.", ref showStormtalonImage))
             {
                 config.ShowStormtalonImage = showStormtalonImage;
+            }
+            if (config.ShowStormtalonImage)
+            {
+                if (ImGui.Checkbox("Enable Decaying Stormtalons", ref decayStormtalonImage))
+                {
+                    config.DecayStormtalonImage = decayStormtalonImage;
+                }
+                if (config.DecayStormtalonImage)
+                {
+                    if (ImGui.Checkbox("Enable Decaying Stormtalon Counter", ref decayStormtalonCounter))
+                    {
+                        config.DecayStormtalonCounter = decayStormtalonCounter;
+                    }
+                }
             }
             if (ImGui.ColorEdit4($"Text Colour ##{colourSelection}", ref chosenColour, ImGuiColorEditFlags.NoInputs))
             {

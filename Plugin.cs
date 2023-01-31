@@ -8,6 +8,7 @@ using Dalamud.Game.Command;
 using Dalamud.Game;
 using System.IO;
 using System.Reflection;
+using ImGuiNET;
 
 namespace Stormtalons
 {
@@ -49,7 +50,8 @@ namespace Stormtalons
             var stormtalonImage = this.pluginInterface.UiBuilder.LoadImage(imagePath);
 
             this.ui = new PluginUI(config, clientState, stormtalonImage);
-            this.cui = new ConfigUI(config.Opacity, config.IsClickthrough, config, config.ShowStormtalonImage, config.ChosenColour);
+            this.cui = new ConfigUI(config, config.IsClickthrough, config.Opacity, config.RemainingStormtalonDisplay, config.ShowStormtalonImage, 
+                                    config.DecayStormtalonImage, config.DecayStormtalonCounter, config.ChosenColour);
             this.pluginInterface.UiBuilder.Draw += this.ui.Draw;
             this.pluginInterface.UiBuilder.Draw += this.cui.Draw;
 
