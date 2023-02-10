@@ -11,7 +11,7 @@ namespace Stormtalons
         public bool IsVisible { get; set; }
         private Configuration config;
         private ImGuiScene.TextureWrap stormtalonImage;
-        
+
 
         public PluginUI(Configuration config, ClientState clientState, ImGuiScene.TextureWrap stormtalonImage)
         {
@@ -39,7 +39,7 @@ namespace Stormtalons
                 if (config.DecayStormtalonImage)
                 {
                     float imgAdjuster = (float)(remainingStormtalons - Math.Truncate(remainingStormtalons));
-                    string roundedRemaingStringtalons = String.Format("{0:0}", remainingStormtalons);
+                    string roundedRemaingStringtalons = String.Format("{0:0}", Math.Ceiling(remainingStormtalons));
                     Vector2 uv0 = new Vector2(0.0f, 0.0f);
                     Vector2 uv1 = new Vector2(imgAdjuster, 1.0f);
                     ImGui.Image(this.stormtalonImage.ImGuiHandle, new Vector2(imgAdjuster * this.stormtalonImage.Width, this.stormtalonImage.Height), uv0, uv1);
