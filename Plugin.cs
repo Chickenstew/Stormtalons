@@ -7,8 +7,8 @@ using Dalamud.Game.ClientState.Objects.Types;
 using Dalamud.Game.Command;
 using Dalamud.Game;
 using System.IO;
-using System.Reflection;
-using ImGuiNET;
+using Dalamud.Plugin.Services;
+
 
 namespace Stormtalons
 {
@@ -19,22 +19,22 @@ namespace Stormtalons
         private PluginUI ui;
         private ConfigUI cui;
         private GameObject previousTarget;
-        private ClientState _clientState;
-        private Condition _condition;
-        private TargetManager _targetManager;
-        private Framework _framework;
-        private CommandManager _commands;
+        private IClientState _clientState;
+        private ICondition _condition;
+        private ITargetManager _targetManager;
+        private IFramework _framework;
+        private ICommandManager _commands;
 
         public string Name => "Stormtalons";
 
 
         public Plugin(
             DalamudPluginInterface pluginInterface,
-            ClientState clientState,
-            CommandManager commands,
-            Condition condition,
-            Framework framework,
-            TargetManager targets)
+            IClientState clientState,
+            ICommandManager commands,
+            ICondition condition,
+            IFramework framework,
+            ITargetManager targets)
         {
             this.pluginInterface = pluginInterface;
             this._clientState = clientState;
@@ -50,7 +50,7 @@ namespace Stormtalons
             var stormtalonImage = this.pluginInterface.UiBuilder.LoadImage(imagePath);
 
             this.ui = new PluginUI(config, clientState, stormtalonImage);
-            this.cui = new ConfigUI(config, config.IsClickthrough, config.Opacity, config.RemainingStormtalonDisplay, config.ShowStormtalonImage, 
+            this.cui = new ConfigUI(config, config.IsClickthrough, config.Opacity, config.RemainingStormtalonDisplay, config.ShowStormtalonImage,
                                     config.DecayStormtalonImage, config.DecayStormtalonCounter, config.ChosenColour);
             this.pluginInterface.UiBuilder.Draw += this.ui.Draw;
             this.pluginInterface.UiBuilder.Draw += this.cui.Draw;
@@ -68,7 +68,7 @@ namespace Stormtalons
             cui.IsVisible = true;
         }
 
-        public void GetData(Framework framework)
+        public void GetData(IFramework framework)
         {
             GameObject target = _targetManager.Target;
             TargetInfo t = new TargetInfo();

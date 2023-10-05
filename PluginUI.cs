@@ -3,6 +3,8 @@ using ImGuiNET;
 using System.Numerics;
 using Dalamud.Game.ClientState;
 using Dalamud.Interface.GameFonts;
+using Dalamud.Plugin.Services;
+using Dalamud.Interface.Internal;
 
 namespace Stormtalons
 {
@@ -10,10 +12,10 @@ namespace Stormtalons
     {
         public bool IsVisible { get; set; }
         private Configuration config;
-        private ImGuiScene.TextureWrap stormtalonImage;
+        private IDalamudTextureWrap stormtalonImage;
 
 
-        public PluginUI(Configuration config, ClientState clientState, ImGuiScene.TextureWrap stormtalonImage)
+        public PluginUI(Configuration config, IClientState clientState, IDalamudTextureWrap stormtalonImage)
         {
             this.config = config;
             this.stormtalonImage = stormtalonImage;
@@ -23,8 +25,8 @@ namespace Stormtalons
             if (!IsVisible)
                 return;
             var mobHealth = TargetInfo.Health;
-            var flags = ImGuiWindowFlags.NoResize | ImGuiWindowFlags.AlwaysAutoResize | ImGuiWindowFlags.NoTitleBar;            
-            
+            var flags = ImGuiWindowFlags.NoResize | ImGuiWindowFlags.AlwaysAutoResize | ImGuiWindowFlags.NoTitleBar;
+
             if (config.IsClickthrough)
             {
                 flags |= ImGuiWindowFlags.NoInputs;
@@ -53,7 +55,8 @@ namespace Stormtalons
                         ImGui.PopStyleColor();
                         ImGui.SetWindowFontScale(1);
                     }
-                } else
+                }
+                else
                 {
                     ImGui.Image(this.stormtalonImage.ImGuiHandle, new Vector2(this.stormtalonImage.Width, this.stormtalonImage.Height));
                 }
