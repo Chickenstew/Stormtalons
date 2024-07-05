@@ -2,10 +2,7 @@
 using ImGuiNET;
 using System.Numerics;
 using Dalamud.Plugin.Services;
-using Dalamud.Interface.Textures.TextureWraps;
 using Dalamud.Interface.Textures;
-using ImGuiScene;
-using System.IO;
 
 namespace Stormtalons
 {
