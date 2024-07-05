@@ -1,40 +1,43 @@
 ﻿using System;
-using Dalamud.Game.ClientState;
 using Dalamud.Plugin;
-using Dalamud.Game.ClientState.Conditions;
 using Dalamud.Game.ClientState.Objects;
-using Dalamud.Game.ClientState.Objects.Types;
 using Dalamud.Game.Command;
-using Dalamud.Game;
 using System.IO;
 using Dalamud.Plugin.Services;
+using Dalamud.Game.ClientState.Objects.Types;
+using Dalamud.Interface.Textures.TextureWraps;
+using ImGuiScene;
+using Dalamud.Interface;
+using Dalamud.IoC;
 
 
 namespace Stormtalons
 {
     public class Plugin : IDalamudPlugin
     {
-        private DalamudPluginInterface pluginInterface;
+        private IDalamudPluginInterface pluginInterface;
         private Configuration config;
         private PluginUI ui;
         private ConfigUI cui;
-        private GameObject previousTarget;
+        private IGameObject previousTarget;
         private IClientState _clientState;
         private ICondition _condition;
         private ITargetManager _targetManager;
         private IFramework _framework;
         private ICommandManager _commands;
+        [PluginService] internal static ITextureProvider TextureProvider { get; private set; } = null;
 
         public string Name => "Stormtalons";
 
 
         public Plugin(
-            DalamudPluginInterface pluginInterface,
+            IDalamudPluginInterface pluginInterface,
             IClientState clientState,
             ICommandManager commands,
             ICondition condition,
             IFramework framework,
-            ITargetManager targets)
+            ITargetManager targets,
+            ITextureProvider textureProvider)
         {
             this.pluginInterface = pluginInterface;
             this._clientState = clientState;
@@ -42,12 +45,14 @@ namespace Stormtalons
             this._framework = framework;
             this._commands = commands;
             this._targetManager = targets;
+            TextureProvider = textureProvider;
+
 
             this.config = (Configuration)this.pluginInterface.GetPluginConfig() ?? new Configuration();
             this.config.Initialize(this.pluginInterface);
 
             var imagePath = Path.Combine(pluginInterface.AssemblyLocation.Directory?.FullName!, "stormtalon.png");
-            var stormtalonImage = this.pluginInterface.UiBuilder.LoadImage(imagePath);
+            var stormtalonImage = textureProvider.GetFromFile(imagePath);
 
             this.ui = new PluginUI(config, clientState, stormtalonImage);
             this.cui = new ConfigUI(config, config.IsClickthrough, config.Opacity, config.RemainingStormtalonDisplay, config.ShowStormtalonImage,
@@ -70,7 +75,7 @@ namespace Stormtalons
 
         public void GetData(IFramework framework)
         {
-            GameObject target = _targetManager.Target;
+            IGameObject target = _targetManager.Target;
             TargetInfo t = new TargetInfo();
             if (!t.IsValidTarget(target))
             {

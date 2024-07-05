@@ -17,7 +17,7 @@ namespace Stormtalons
         private Vector4 chosenColour;
 
 
-        public ConfigUI( Configuration config, bool isClickthrough, float opacity, bool remainingStormtalonDisplay, bool showStormtalonImage, 
+        public ConfigUI(Configuration config, bool isClickthrough, float opacity, bool remainingStormtalonDisplay, bool showStormtalonImage,
                                         bool decayStormtalonImage, bool decayStormtalonCounter, Vector4 chosenColour)
         {
             this.config = config;

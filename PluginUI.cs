@@ -1,10 +1,11 @@
 ﻿using System;
 using ImGuiNET;
 using System.Numerics;
-using Dalamud.Game.ClientState;
-using Dalamud.Interface.GameFonts;
 using Dalamud.Plugin.Services;
-using Dalamud.Interface.Internal;
+using Dalamud.Interface.Textures.TextureWraps;
+using Dalamud.Interface.Textures;
+using ImGuiScene;
+using System.IO;
 
 namespace Stormtalons
 {
@@ -12,10 +13,10 @@ namespace Stormtalons
     {
         public bool IsVisible { get; set; }
         private Configuration config;
-        private IDalamudTextureWrap stormtalonImage;
+        private ISharedImmediateTexture stormtalonImage;
 
 
-        public PluginUI(Configuration config, IClientState clientState, IDalamudTextureWrap stormtalonImage)
+        public PluginUI(Configuration config, IClientState clientState, ISharedImmediateTexture stormtalonImage)
         {
             this.config = config;
             this.stormtalonImage = stormtalonImage;
@@ -44,7 +45,7 @@ namespace Stormtalons
                     string roundedRemaingStringtalons = String.Format("{0:0}", Math.Ceiling(remainingStormtalons));
                     Vector2 uv0 = new Vector2(0.0f, 0.0f);
                     Vector2 uv1 = new Vector2(imgAdjuster, 1.0f);
-                    ImGui.Image(this.stormtalonImage.ImGuiHandle, new Vector2(imgAdjuster * this.stormtalonImage.Width, this.stormtalonImage.Height), uv0, uv1);
+                    ImGui.Image(this.stormtalonImage.GetWrapOrEmpty().ImGuiHandle, new Vector2(imgAdjuster * this.stormtalonImage.GetWrapOrDefault().Width, this.stormtalonImage.GetWrapOrDefault().Height), uv0, uv1);
                     if (config.DecayStormtalonCounter)
                     {
                         ImGui.SameLine(160);
@@ -58,7 +59,7 @@ namespace Stormtalons
                 }
                 else
                 {
-                    ImGui.Image(this.stormtalonImage.ImGuiHandle, new Vector2(this.stormtalonImage.Width, this.stormtalonImage.Height));
+                    ImGui.Image(this.stormtalonImage.GetWrapOrEmpty().ImGuiHandle, new Vector2(this.stormtalonImage.GetWrapOrDefault().Width, this.stormtalonImage.GetWrapOrDefault().Height));
                 }
             }
             if (config.RemainingStormtalonDisplay)
