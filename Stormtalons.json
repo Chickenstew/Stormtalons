@@ -1,13 +1,16 @@
-
-  {
-      "Author": "Chickenstew",
-      "Name": "Stormtalons",
-      "Description": "Gives the value of current targets health in Stormtalons from the dead game Wildstar.",
-      "Punchline": "Gives the value of current targets health in Stormtalons from the dead game Wildstar.",
-      "InternalName": "Stormtalons",
-      "AssemblyVersion": "1.1.0.4",
-      "TestingAssemblyVersion": "1.1.0.4",
-      "RepoUrl": "https://github.com/Chickenstew/Stormtalons",
-      "ApplicableVersion": "any"
-  }
+{
+  "Author": "Chickenstew",
+  "Name": "Stormtalons",
+  "Description": "Gives the value of current targets health in Stormtalons from the dead game Wildstar.",
+  "Punchline": "Gives the value of current targets health in Stormtalons from the dead game Wildstar.",
+  "InternalName": "Stormtalons",
+  "AssemblyVersion": "1.1.0.5",
+  "TestingAssemblyVersion": "1.1.0.5",
+  "RepoUrl": "https://github.com/Chickenstew/Stormtalons",
+  "ApplicableVersion": "any",
+  "Tags": [
+    "UI",
+    "Utility"
+  ]
+}
 
