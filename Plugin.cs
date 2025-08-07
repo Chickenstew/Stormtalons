@@ -22,7 +22,7 @@ namespace Stormtalons
         private ITargetManager _targetManager;
         private IFramework _framework;
         private ICommandManager _commands;
-        [PluginService] internal static ITextureProvider TextureProvider { get; private set; } = null;
+        [PluginService] internal static ITextureProvider? TextureProvider { get; private set; } = null;
 
         public string Name => "Stormtalons";
 

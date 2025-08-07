@@ -1,8 +1,8 @@
-﻿using System;
-using ImGuiNET;
-using System.Numerics;
-using Dalamud.Plugin.Services;
+﻿using Dalamud.Bindings.ImGui;
 using Dalamud.Interface.Textures;
+using Dalamud.Plugin.Services;
+using System;
+using System.Numerics;
 
 namespace Stormtalons
 {
@@ -42,7 +42,7 @@ namespace Stormtalons
                     string roundedRemaingStringtalons = String.Format("{0:0}", Math.Ceiling(remainingStormtalons));
                     Vector2 uv0 = new Vector2(0.0f, 0.0f);
                     Vector2 uv1 = new Vector2(imgAdjuster, 1.0f);
-                    ImGui.Image(this.stormtalonImage.GetWrapOrEmpty().ImGuiHandle, new Vector2(imgAdjuster * this.stormtalonImage.GetWrapOrDefault().Width, this.stormtalonImage.GetWrapOrDefault().Height), uv0, uv1);
+                    ImGui.Image(this.stormtalonImage.GetWrapOrEmpty().Handle, new Vector2(imgAdjuster * this.stormtalonImage.GetWrapOrDefault().Width, this.stormtalonImage.GetWrapOrDefault().Height), uv0, uv1);
                     if (config.DecayStormtalonCounter)
                     {
                         ImGui.SameLine(160);
@@ -56,7 +56,7 @@ namespace Stormtalons
                 }
                 else
                 {
-                    ImGui.Image(this.stormtalonImage.GetWrapOrEmpty().ImGuiHandle, new Vector2(this.stormtalonImage.GetWrapOrDefault().Width, this.stormtalonImage.GetWrapOrDefault().Height));
+                    ImGui.Image(this.stormtalonImage.GetWrapOrEmpty().Handle, new Vector2(this.stormtalonImage.GetWrapOrDefault().Width, this.stormtalonImage.GetWrapOrDefault().Height));
                 }
             }
             if (config.RemainingStormtalonDisplay)
