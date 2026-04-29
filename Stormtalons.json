@@ -4,8 +4,8 @@
   "Description": "Gives the value of current targets health in Stormtalons from the dead game Wildstar.",
   "Punchline": "Gives the value of current targets health in Stormtalons from the dead game Wildstar.",
   "InternalName": "Stormtalons",
-  "AssemblyVersion": "1.1.0.8",
-  "TestingAssemblyVersion": "1.1.0.8",
+  "AssemblyVersion": "1.1.0.9",
+  "TestingAssemblyVersion": "1.1.0.9",
   "RepoUrl": "https://github.com/Chickenstew/Stormtalons",
   "ApplicableVersion": "any",
   "Tags": [
